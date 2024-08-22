@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Generator</title>
+</head>
+<body>
+    <h1>Article Generator</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div id="speakersContainer">
+            <div class="speaker">
+                <h3>Speaker</h3>
+                <label for="speaker_name">Speaker Name:</label>
+                <input type="text" id="speaker_name" name="speaker_name" required><br><br>
+
+                <label for="speaker_bio">Speaker Bio:</label>
+                <textarea id="speaker_bio" name="speaker_bio"></textarea><br><br>
+            </div>
+        </div>
+
+        <label for="video_title">Video Title:</label>
+        <input type="text" id="video_title" name="video_title" required><br><br>
+
+        <label for="video_description">Video Description:</label>
+        <textarea id="video_description" name="video_description"></textarea><br><br>
+
+        <label for="youtube_url">YouTube URL:</label>
+        <input type="text" id="youtube_url" name="youtube_url"><br><br>
+
+        <label for="github_url">GitHub Repository URL:</label>
+        <input type="url" id="github_url" name="github_url"><br><br>
+
+        <input type="submit" value="Generate Article">
+    </form>
+</body>
+</html>

@@ -48,9 +48,5 @@ def analyze_github_repo(repo_url):
         readme_content = base64.b64decode(readme.content).decode('utf-8')
     except:
         readme_content = "README not found"
-    print("All code loaded:")
-    print('-----------------------------------------------------------')
-    print(all_code)
-    print('-----------------------------------------------------------')
 
     return all_code, readme_content

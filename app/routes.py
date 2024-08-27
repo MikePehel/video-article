@@ -21,7 +21,6 @@ def index():
         github_url = request.form.get('github_url', '')
         youtube_url = request.form.get('youtube_url', '')
 
-        extracted_code=""
         # Handle transcript file
         transcript_text = ""
         if youtube_url:
@@ -36,10 +35,8 @@ def index():
         # Initialize topics and topic_summaries
         topics, topic_summaries = [], []
 
-        # If no presentation, derive topics from transcript
-        if not topics:
-            topics = derive_topics_from_transcript(transcript_text)
-            topic_summaries = [""] * len(topics)
+        topics = derive_topics_from_transcript(transcript_text)
+        topic_summaries = [""] * len(topics)
 
         # Analyze GitHub repo if URL provided
         github_code = ""
@@ -48,15 +45,13 @@ def index():
         if github_url:
             github_code, readme_content = analyze_github_repo(github_url)
 
-        # Combine extracted_code from presentation with github_code
-        combined_code = extracted_code + "\n\n" + github_code
 
         speaker_info = speaker_name + "\n " + speaker_bio
 
         # Generate article
         article = generate_article(
             transcript_text, topics, topic_summaries, 
-            combined_code, readme_content,
+            github_code, readme_content,
             speaker_info,
             video_title, video_description, 
         )
